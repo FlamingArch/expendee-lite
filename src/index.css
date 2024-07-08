@@ -2,15 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #f2f3f6;
-  color: 222326;
-  @media (prefers-color-scheme: dark) {
-    background-color: #222326;
-    color: white;
-  }
-}
-
 button {
   @apply p-2 hover:bg-slate-200 rounded-xl w-fit h-fit;
 }

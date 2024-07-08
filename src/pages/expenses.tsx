@@ -9,10 +9,11 @@ export default function PageExpense() {
 
   return (
     <main className="flex flex-col md:flex-row bg-black text-white min-h-screen w-screen">
-      <div className="flex flex-col">
+      <header className="flex flex-col py-4 gap-4 md:w-[250px]">
         <AppBar />
         <SummaryCard />
-      </div>
+        <TabBar />
+      </header>
 
       <article className="flex flex-col flex-grow md:flex-grow-0 md:w-[300px] bg-scaffold text-foreground mt-0 pb-2 md:max-h-screen overflow-scroll md:border-r">
         <ToolBar />
@@ -75,11 +76,30 @@ export default function PageExpense() {
   );
 }
 
+function TabBar() {
+  return (
+    <>
+      <p className="hidden md:block font-bold uppercase mx-4">Transactions</p>
+      <div className="flex md:flex-col mx-4 bg-[#222326] rounded-xl">
+        <div className="flex-grow cursor-pointer md:flex-grow-0 flex-1 text-center md:text-start p-2 md:p-4 rounded-xl bg-white text-black">
+          All
+        </div>
+        <div className="flex-grow cursor-pointer md:flex-grow-0 flex-1 text-center md:text-start p-2 md:p-4 rounded-xl ">
+          Spent
+        </div>
+        <div className="flex-grow cursor-pointer md:flex-grow-0 flex-1 text-center md:text-start p-2 md:p-4 rounded-xl ">
+          Received
+        </div>
+      </div>
+    </>
+  );
+}
+
 function SummaryCard() {
   const { totalValue, totalReceived, totalSpent } = useStore();
 
   return (
-    <article className="flex md:flex-col items-center rounded-2xl overflow-clip bg-accent shadow-2xl shadow-accent/40 mx-4 mb-4">
+    <article className="flex md:flex-col items-center rounded-2xl overflow-clip bg-accent shadow-2xl shadow-accent/40 mx-4">
       <div className="text-center py-6 md:py-4 grid flex-grow place-content-center">
         <p className="text-xl">${totalValue}</p>
         <p>Total</p>
@@ -98,7 +118,7 @@ function SummaryCard() {
 
 function AppBar() {
   return (
-    <header className="flex flex-col p-4 gap-4">
+    <header className="flex flex-col px-4 gap-4">
       <div className="flex items-center gap-2">
         <h1 className="text-2xl font-serif font-black">EXPENDEE</h1>
         <span className="font-mono rounded text-xs p-1 text-black bg-white">
