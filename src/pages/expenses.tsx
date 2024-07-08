@@ -8,11 +8,13 @@ export default function PageExpense() {
     : "px-4 py-4 border-b";
 
   return (
-    <main className="flex flex-col bg-black text-white min-h-screen w-screen">
-      <AppBar />
-      <SummaryCard />
+    <main className="flex flex-col md:flex-row bg-black text-white min-h-screen w-screen">
+      <div className="flex flex-col">
+        <AppBar />
+        <SummaryCard />
+      </div>
 
-      <article className="flex flex-col flex-grow bg-scaffold text-foreground rounded-2xl mt-0 pb-2 ">
+      <article className="flex flex-col flex-grow md:flex-grow-0 md:w-[300px] bg-scaffold text-foreground mt-0 pb-2 md:max-h-screen overflow-scroll md:border-r">
         <ToolBar />
         <div className={"flex flex-col gap-1 " + styles}>
           <p className="text-sm font-semibold">8:23 PM · HDFC Bank</p>
@@ -65,6 +67,10 @@ export default function PageExpense() {
           <p>Electricity Bill</p>
         </div>
       </article>
+
+      <article className="hidden bg-scaffold text-foreground md:grid place-content-center flex-grow">
+        Select a Transaction
+      </article>
     </main>
   );
 }
@@ -73,19 +79,17 @@ function SummaryCard() {
   const { totalValue, totalReceived, totalSpent } = useStore();
 
   return (
-    <article className="flex items-center rounded-2xl overflow-clip bg-accent shadow-2xl shadow-accent/40 mb-4">
-      <div className="text-center py-6 grid flex-grow place-content-center">
-        <p className="text-2xl">${totalValue}</p>
+    <article className="flex md:flex-col items-center rounded-2xl overflow-clip bg-accent shadow-2xl shadow-accent/40 mx-4 mb-4">
+      <div className="text-center py-6 md:py-4 grid flex-grow place-content-center">
+        <p className="text-xl">${totalValue}</p>
         <p>Total</p>
       </div>
-      |
-      <div className="text-center py-6 grid flex-grow place-content-center">
-        <p className="text-2xl">${totalSpent}</p>
+      <div className="text-center py-6 md:py-4 grid flex-grow place-content-center">
+        <p className="text-xl">${totalSpent}</p>
         <p>Spent</p>
       </div>
-      |
-      <div className="text-center py-6 grid flex-grow place-content-center">
-        <p className="text-2xl">${totalReceived}</p>
+      <div className="text-center py-6 md:py-4 grid flex-grow place-content-center">
+        <p className="text-xl">${totalReceived}</p>
         <p>Received</p>
       </div>
     </article>
