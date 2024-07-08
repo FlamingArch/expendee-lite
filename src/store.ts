@@ -3,6 +3,7 @@ import { create } from "zustand";
 type Store = {
   searchExpanded: boolean;
   asCard: boolean;
+  lightSidebar: boolean;
   searchValue: string;
   totalValue: number;
   totalSpent: number;
@@ -14,6 +15,7 @@ type Store = {
 const useStore = create<Store>((set) => ({
   searchExpanded: false,
   asCard: (localStorage.getItem("asCard") ?? "true") === "true",
+  lightSidebar: (localStorage.getItem("lightSidebar") ?? "false") === "true",
   searchValue: "",
   totalValue: 100.23,
   totalSpent: 12.34,
