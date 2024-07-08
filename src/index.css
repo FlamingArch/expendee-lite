@@ -12,10 +12,10 @@ body {
 }
 
 button {
-  @apply p-3 hover:bg-slate-200 rounded-xl w-fit h-fit;
+  @apply p-2 hover:bg-slate-200 rounded-xl w-fit h-fit;
 }
 
 input,
 .input {
-  @apply p-3 rounded-xl bg-white w-full outline-none placeholder:text-slate-400;
+  @apply p-2 px-4 rounded-xl bg-white w-full outline-none placeholder:text-slate-400;
 }
