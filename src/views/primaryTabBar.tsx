@@ -3,7 +3,7 @@ import useStore from "../store";
 
 export default function PrimaryTabBar() {
   function getNavLinkStyle(props: NavLinkRenderProps): string {
-    const layoutStyles = "flex flex-1 flex-grow md:flex-grow-0 gap-2 p-4";
+    const layoutStyles = "flex flex-1 flex-grow md:flex-grow-0 gap-2 p-3";
     const alignmentStyles = "justify-center md:justify-start";
     const effectStyles = "cursor rounded-xl";
     const activeStyles = props.isActive ? "bg-white text-black shadow-2xl" : "";
@@ -11,9 +11,9 @@ export default function PrimaryTabBar() {
   }
 
   const links: { [index: string]: string[] } = {
-    All: ["/transactions/all", "swap_vert"],
-    Spent: ["/transactions/spent", "north_east"],
-    Received: ["/transactions/received", "south_west"],
+    All: ["/all", "swap_vert"],
+    Spent: ["/spent", "north_east"],
+    Received: ["/received", "south_west"],
   };
 
   const { lightSidebar } = useStore();
